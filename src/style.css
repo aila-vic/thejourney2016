@@ -666,6 +666,22 @@ transition-property:background-color, color;
 transition-duration:.3s;
 }
 
+.side-nav .collapsible-body li[data-walk='event'] {
+color:#f0aeef;
+} 
+
+.side-nav .collapsible-body li[data-walk='event'].active {
+background-color:#f0aeef !important;
+color:#FFF;
+}
+
+.side-nav .collapsible-body li[data-walk='event']:hover {
+background-color:#f0aeef !important;
+color:#FFF;
+transition-property:background-color, color;
+transition-duration:.3s;
+}
+
 .side-nav .collapsible-body li[data-walk='miscellaneous'] {
 color:#f0aeef;
 }
