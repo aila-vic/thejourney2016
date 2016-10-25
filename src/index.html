@@ -55,7 +55,7 @@
 					<li class="active waves-effect waves-light" data-walk='urban'><input type="checkbox" id="urban" class="filter" onclick="filter(this)" data-walk="THE COGS OF THE CITY / URBAN MECHANICS (moving people - tram / bus / bike / car / walk / boat)"/><label class="filter-label" for="urban">Urban Mechanics</label></li>
 					<li class="active waves-effect waves-dark" data-walk='sport'><input type="checkbox" id="sport" class="dark" onclick="filter(this)" data-walk="A SPORTING CITY"/><label class="filter-label-dark" for="sport">A Sporting City</label></li>
 					
-					<li class="active waves-effect waves-light" data-walk='event'><input type="checkbox" id="event" class="dark" onclick="filter(this)" data-walk="Festival Events"/><label class="filter-label-dark" for="event">Festival Events</label></li>
+					<li class="active waves-effect waves-light hidden hide" data-walk='event'><input type="checkbox" id="event" class="dark" onclick="filter(this)" data-walk="Festival Events"/><label class="filter-label-dark" for="event">Festival Events</label></li>
 					<!-- <li class="active waves-effect waves-light" data-walk='miscellaneous'><input type="checkbox" id="miscellaneous" class="filter" onclick="filter(this)" data-walk="MISCELLANEOUS"/><label class="filter-label" for="miscellaneous">Miscellaneous</label></li> -->
 					<!-- <li class="active waves-effect waves-light" data-walk='uncategorized'><input type="checkbox" id="uncategorized" class="filter" onclick="filter(this)" data-walk="uncategorized"/><label class="filter-label" for="uncategorized">Uncategorized</label></li> -->
 				</ul>
@@ -226,6 +226,8 @@ Luke Duggan<br>
 		<script type="text/javascript" src="nouislider.js"></script>
 		<script type="text/javascript">
 
+		//used to check if geoJson is ready
+		var geoJsonReady = false;
 		
 		//JQUERY TO BIND EVENTS TO NON-DYNAMIC ELEMENTS.
 
@@ -233,13 +235,28 @@ Luke Duggan<br>
 
 		$(document).ready(function() {
 		
+			var activateMapIfDataReady = function(){
+				console.log("hey");
+				//this checks if the geojson has been loaded yet, show the poits, if not wait another timeout.
+				setTimeout(function(){
+					if(geoJsonReady===true){
+						activateMap(true, true);
+					}
+					else{
+						activateMapIfDataReady();
+					}
+				},1000);
+			}
+
 			var setToFullScreenMode = function(fullScreenModeAllTheTime)
 			//this clears the click here to start button, and loads the marks, its started from bottom of document ready function
 			{
 				if(fullScreenModeAllTheTime)
 				{
 					$('.touchtobegin').hide();
-					setTimeout(function(){ activateMap(true, true); }, 1000);
+					activateMapIfDataReady();
+
+					
 				}
 				if (window.location.protocol != "https:") {
 
@@ -529,6 +546,12 @@ Luke Duggan<br>
 		    })
 		    geojson.addTo(map)
 		    readJourney(getParameterByName('j')) // Example query get.
+
+
+		    //ensure the data gets loaded
+		    geoJsonReady = true;
+
+
 		}
 		getData().done(handleData);
 

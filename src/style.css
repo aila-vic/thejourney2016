@@ -32,13 +32,30 @@ overflow:hidden;
 	background-color: #f6653c;
 	z-index: 1;
 	padding:2px;
+
 }
 
 .fullscreen.backToAilaButton img{
 	height: 60px;
-
+    transition: all .3s ease-out;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+    transition-delay: initial;
 }
+@media only screen and (max-width: 767px) {
+	.fullscreen.backToAilaButton{
+		width:154px;
+		height:56px;
+		background-color: #f6653c;
+		z-index: 1;
+		padding:2px;
+	}
 
+	.fullscreen.backToAilaButton img{
+		height: 52px;
+	}
+}
 .send-button{
 	vertical-align: middle;
 	color:#fff;
