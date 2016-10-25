@@ -3,7 +3,7 @@ margin:0;
 padding:0;
 overflow:hidden;
 }
-
+ 
 .fullscreen{
 	position: absolute;
 	display: block;
@@ -16,11 +16,27 @@ overflow:hidden;
 	z-index: 1;
 }
 
+
 .fullscreen i{
 	font-size: 60px;
 	line-height: 0 !important;
 	color:white;
 	display: inline;
+
+}
+
+
+.fullscreen.backToAilaButton{
+	width:176px;
+	height:64px;
+	background-color: #f6653c;
+	z-index: 1;
+	padding:2px;
+}
+
+.fullscreen.backToAilaButton img{
+	height: 60px;
+
 }
 
 .send-button{
@@ -661,6 +677,22 @@ color:#FFF;
 
 .side-nav .collapsible-body li[data-walk='history']:hover {
 background-color:#747167 !important;
+color:#FFF;
+transition-property:background-color, color;
+transition-duration:.3s;
+}
+
+.side-nav .collapsible-body li[data-walk='event'] {
+color:#f0aeef;
+} 
+
+.side-nav .collapsible-body li[data-walk='event'].active {
+background-color:#f0aeef !important;
+color:#FFF;
+}
+
+.side-nav .collapsible-body li[data-walk='event']:hover {
+background-color:#f0aeef !important;
 color:#FFF;
 transition-property:background-color, color;
 transition-duration:.3s;
