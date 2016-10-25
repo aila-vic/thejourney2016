@@ -16,11 +16,27 @@ overflow:hidden;
 	z-index: 1;
 }
 
+
 .fullscreen i{
 	font-size: 60px;
 	line-height: 0 !important;
 	color:white;
 	display: inline;
+
+}
+
+
+.fullscreen.backToAilaButton{
+	width:176px;
+	height:64px;
+	background-color: #f6653c;
+	z-index: 1;
+	padding:2px;
+}
+
+.fullscreen.backToAilaButton img{
+	height: 60px;
+
 }
 
 .send-button{

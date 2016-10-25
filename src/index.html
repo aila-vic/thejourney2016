@@ -80,7 +80,11 @@
 		  <a href="#" id="menu" data-activates="slide-out" class="button-collapse right show-on-large waves-effect waves-light tooltipped" data-position="left" data-tooltip="Menu"><i class="mdi-navigation-menu"></i></a>
 		</nav>		
 			<!-- <div id="attribution" class="noselect noevents"><p>Designed and developed by <a href="http://twitter.com/edanweis" target="_blank" >@edanweis</a>. Map tiles by <a href="http://stamen.com">Stamen Design</a></p></div> -->
-			<div class="fullscreen waves-effect waves-light tooltipped" data-position="right" data-tooltip=""><a href="http://thejourney.aila.org.au/map" target="_top"><i class="material-icons">fullscreen</i></a></div>
+		<div class="fullscreen waves-effect waves-light tooltipped" data-position="right" data-tooltip="">
+			<a href="http://thejourney.aila.org.au/map" target="_top">
+				<i class="material-icons">fullscreen</i>
+			</a>
+		</div>
 		<div class="row">
 	 		<div id='map' class='custom-popup noselect'></div>
 	 		<div class="touchtobegin noselect"></div>
@@ -194,8 +198,9 @@
 				$('.fullscreen i').text("fullscreen_exit");
 				$('.fullscreen a').attr('href', 'http://thejourney.aila.org.au');
 				$('.fullscreen').attr('data-tooltip', 'Back to The Journey Website');
+				$('.fullscreen').addClass("backToAilaButton")
 				$('.fullscreen').tooltip()
-			}
+				$('.fullscreen a').html('<img class="starting-logo default-logo" alt="The Journey" src="img/logo/the_journey-site_logo-light-retina.png" >')			}
 			
 
 		    activateMap(false, false);
